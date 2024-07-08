@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "757744825813",
+    "project_id": "contribution-manager-65ec0",
+    "storage_bucket": "contribution-manager-65ec0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757744825813:android:596fde97294c16f10db95c",
+        "android_client_info": {
+          "package_name": "com.contribution_manager.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIIGHCM222xJVpDg2Ls-54Tuw1Cnc8uDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
