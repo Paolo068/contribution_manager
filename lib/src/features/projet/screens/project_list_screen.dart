@@ -1,14 +1,29 @@
 import 'package:contribution_manager/src/core/shared/app_layout.dart';
+import 'package:contribution_manager/src/features/projet/screens/add_project_screen.dart';
 import 'package:flutter/material.dart';
 
-class ProjetListScreen extends StatelessWidget {
-  const ProjetListScreen({super.key});
+class ProjectListScreen extends StatefulWidget {
+  const ProjectListScreen({super.key});
 
+  @override
+  State<ProjectListScreen> createState() => _ProjectListScreenState();
+}
+
+class _ProjectListScreenState extends State<ProjectListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Liste des projets'),
+      resizeToAvoidBottomInset: false,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddProjectScreen(),
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
       body: const AppLayout(
         child: Column(
