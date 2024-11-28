@@ -1,15 +1,11 @@
 import 'dart:convert';
 
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
-
-@immutable
-class ProjectModel extends Equatable {
+final class ProjectModel {
   final String uid;
   final String name;
   final String dueDate;
   final String startDate;
-  const ProjectModel({
+  ProjectModel({
     required this.uid,
     required this.name,
     required this.dueDate,
@@ -72,7 +68,4 @@ class ProjectModel extends Equatable {
   int get hashCode {
     return uid.hashCode ^ name.hashCode ^ dueDate.hashCode ^ startDate.hashCode;
   }
-
-  @override
-  List<Object?> get props => [uid, name, dueDate, startDate];
 }
