@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/logger.dart';
 
-class AddProjectForm extends StatefulWidget {
+class AddProjectForm extends ConsumerStatefulWidget {
   const AddProjectForm({super.key});
 
   @override
-  State<AddProjectForm> createState() => _AddProjectFormState();
+  ConsumerState<AddProjectForm> createState() => _AddProjectFormState();
 }
 
-class _AddProjectFormState extends State<AddProjectForm> {
+class _AddProjectFormState extends ConsumerState<AddProjectForm> {
   final _formKey = GlobalKey<FormBuilderState>();
   final nameCtrl = TextEditingController();
   String dueDate = '';
@@ -29,7 +30,7 @@ class _AddProjectFormState extends State<AddProjectForm> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Creer un nouveau projet de contribution', style: textTheme.headlineSmall),
+              Text('Créer un nouveau projet', style: textTheme.headlineSmall),
               const Gap(40),
               FormBuilderTextField(
                 controller: nameCtrl,
@@ -54,10 +55,10 @@ class _AddProjectFormState extends State<AddProjectForm> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // ref.read
-                    // projectRepository.createProject(nameCtrl.text, dueDate, startDate);
+                    // (projectRepository).createProject(nameCtrl.text, dueDate, startDate);
                   }
                 },
-                child: const Text('Creer'),
+                child: const Text('Créer un projet'),
               ),
             ],
           ),

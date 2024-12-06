@@ -1,15 +1,21 @@
 import 'dart:async';
 
+import 'package:contribution_manager/src/core/models/project_model.dart';
 import 'package:contribution_manager/src/features/projet/repository/project_repository.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class ProjectNotifier extends AsyncNotifier<void> {
+part 'project_controller.g.dart';
+
+@riverpod
+class ProjectNotifier extends _$ProjectNotifier {
   @override
-  FutureOr<void> build() {}
+  Stream<ProjectModel> build() => Stream.value(ProjectModel());
 
-  createProject(name, startDate, dueDate) async {
-    final projectRepository = ref.watch(projectRepositoryProvider);
+  createProject({
+    required ProjectModel project,
+  }) async {
+    final projectRepository = ref.read(projectRepositoryProvider);
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(() => projectRepository.createProject(name, startDate, dueDate));
+    // state = await AsyncValue.guard(() => projectRepository.createProject(project :project));
   }
 }
